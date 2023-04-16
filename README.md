@@ -32,7 +32,9 @@
 NASAAPOD_API = "nasa-token"
 TG_TOKEN = "bot-token"
 TG_CHAT_ID = "@chat_id"
-
+FOLDER_IMAGE = "images"
+time_between_photo_uploads = 60
+    
 ```
 
 Получить токен `NASAAPOD_API` можно на сайте [NASA](https://api.nasa.gov/).
