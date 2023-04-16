@@ -12,7 +12,7 @@ def main():
     TG_CHAT_ID = os.environ['TG_CHAT_ID']
     TG_TOKEN = os.environ['TG_TOKEN']
     folder_images = os.environ.get("FOLDER", "images")
-    time = int(os.environ.get('TIME', 60))
+    time_between_photo_uploads = int(os.environ.get('TIME', 60))
     bot = telegram.Bot(token=TG_TOKEN)
     while True:
         try:
@@ -22,7 +22,7 @@ def main():
                 filepath = os.path.join(folder_images, file)
                 with open(filepath, 'rb') as f:
                     bot.send_document(chat_id=TG_CHAT_ID, document=f)
-                sleep(time)
+                sleep(time_between_photo_uploads)
         except NetworkError:
             print("Ошибка сети. Перезагрузка через 5 секунд...")
             sleep(5)
