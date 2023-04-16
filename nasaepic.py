@@ -25,11 +25,13 @@ def get_epic_images(api_key, foldername, count_links):
 
 def main():
     load_dotenv()
-    count_links = int(input("Введите число фотографий"))
+    parser = argparse.ArgumentParser(description='Загружает изображения NASA')
+    parser.add_argument('count', type=int, help='Введите необходимо количество фотографий:')
+    args = parser.parse_args()
     api_key = os.environ['NASA_KEY']
     foldername = "images"
     Path(foldername).mkdir(parents=True, exist_ok=True)
-    get_epic_images(api_key, foldername, count_links)
+    get_epic_images(api_key, foldername, args.count)
 
 
 if __name__ == "__main__":
