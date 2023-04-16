@@ -26,7 +26,7 @@ def get_epic_images(api_key, foldername, count_links):
 def main():
     load_dotenv()
     count_links = int(input("Введите число фотографий"))
-    api_key = os.environ['NASA_API']
+    api_key = os.environ['NASA_KEY']
     foldername = "images"
     Path(foldername).mkdir(parents=True, exist_ok=True)
     get_epic_images(api_key, foldername, count_links)
