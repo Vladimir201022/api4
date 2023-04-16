@@ -9,11 +9,11 @@ from telegram.error import NetworkError
 
 def main():
     load_dotenv()
-    TG_CHAT_ID = os.environ['TG_CHAT_ID']
-    TG_TOKEN = os.environ['TG_TOKEN']
+    tg_chat_id = os.environ['TG_CHAT_ID']
+    tg_token = os.environ['TG_TOKEN']
     folder_images = os.environ.get("FOLDER", "images")
     time_between_photo_uploads = int(os.environ.get('TIME', 60))
-    bot = telegram.Bot(token=TG_TOKEN)
+    bot = telegram.Bot(token=tg_token)
     while True:
         try:
             files = listdir(folder_images)
@@ -21,7 +21,7 @@ def main():
             for file in files:
                 filepath = os.path.join(folder_images, file)
                 with open(filepath, 'rb') as f:
-                    bot.send_document(chat_id=TG_CHAT_ID, document=f)
+                    bot.send_document(chat_id=tg_chat_id, document=f)
                 sleep(time_between_photo_uploads)
         except NetworkError:
             print("Ошибка сети. Перезагрузка через 5 секунд...")
