@@ -12,7 +12,7 @@ def main():
     TG_CHAT_ID = os.environ['TG_CHAT_ID']
     TG_TOKEN = os.environ['TG_TOKEN']
     folder_images = os.environ.get("FOLDER", "images")
-    time = int(os.environ.get('time', 60))
+    time = int(os.environ.get('TIME', 60))
     bot = telegram.Bot(token=TG_TOKEN)
     while True:
         try:
