@@ -38,7 +38,7 @@ def main():
     load_dotenv()
     count_links = int(input("Введите число фотографий"))
 
-    api_key = os.environ['NASAAPOD_API']
+    api_key = os.environ['NASAAPOD_KEY']
 
     foldername = "images"
     Path(foldername).mkdir(parents=True, exist_ok=True)
