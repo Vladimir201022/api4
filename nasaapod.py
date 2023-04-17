@@ -6,7 +6,7 @@ from download_image import download_image
 from urllib.parse import urlparse, unquote
 
 
-def extract_link(link):
+def extract_extension_from_link(link):
     decoding_link = unquote(link)
     parse_link = urlparse(decoding_link)
     path, fullname = os.path.split(parse_link.path)
