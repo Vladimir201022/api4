@@ -6,16 +6,16 @@ from pathlib import Path
 from download_image import download_image
 
 
-def get_epic_images(api_key, foldername, count_links):
-    nasa_link_epic = "https://api.nasa.gov/EPIC/api/natural/image"
-    params = {"api_key": api_key, "count": count_links}
+def get_epic_images(api_key, foldername, links_count):
+    link_nasa_epic = "https://api.nasa.gov/EPIC/api/natural/image"
+    params = {"api_key": api_key, "count": links_count}
 
-    response = requests.get(nasa_link_epic, params=params)
+    response = requests.get(link_nasa_epic, params=params)
     response.raise_for_status()
     nasa_images = response.json()
-    for image_nasa in nasa_images:
-        filename = image_nasa["image"]
-        image_nasa_date = image_nasa["date"]
+    for nasa_image in nasa_images:
+        filename = nasa_image["image"]
+        image_nasa_date = nasa_image["date"]
         image_nasa_date = datetime.fromisoformat(image_nasa_date).strftime(
             "%Y/%m/%d")
         link_path = f"https://api.nasa.gov/EPIC/archive/natural/{image_nasa_date}/png/{filename}.png"
