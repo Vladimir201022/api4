@@ -12,8 +12,8 @@ def fetch_spacex_last_launch(foldername):
     response.raise_for_status()
     for photo in response.json():
         if photo["links"]["flickr"]["original"]:
-            url_photo = photo["links"]["flickr"]["original"]
-    for number, link in enumerate(url_photo):
+            urls_photo = photo["links"]["flickr"]["original"]
+    for number, link in enumerate(urls_photo):
         filename = f"spacex_{number}.jpg"
         path = os.path.join(foldername, filename)
         download_image(link, path)
