@@ -23,14 +23,12 @@ def get_apod_images(api_key, foldername, count_links):
     response.raise_for_status()
     nasa_images = response.json()
     for nasa_image in nasa_images:
-        if nasa_image.get("media_type") == "image":
-            if nasa_image.get("hdurl"):
-                link_nasa_image = nasa_image["hdurl"]
-            else:
-                link_nasa_image = nasa_image["url"]
-            extantion, filename = extract_link(link_nasa_image)
-            path = os.path.join(foldername, f'{filename}{extantion}')
-            download_image(link_nasa_image, path)
+       if image_nasa.get("media_type") == "image":
+           nasa_link_image = image_nasa.get("hdurl") or image_nasa.get("url")
+           print(nasa_link_image)
+           extension, file_name = extract_extension_from_link(nasa_link_image)
+           path = os.path.join(folder_name, f'{file_name}{extension}')
+           download_image(nasa_link_image, path)
 
 
 def main():
