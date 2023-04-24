@@ -1,5 +1,4 @@
 import requests
-from dotenv import load_dotenv
 import os
 from pathlib import Path
 from download_image import download_image
@@ -20,7 +19,6 @@ def fetch_spacex_last_launch(foldername):
 
 
 def main():
-    load_dotenv()
     foldername = "images"
     Path(foldername).mkdir(parents=True, exist_ok=True)
     fetch_spacex_last_launch(foldername)
