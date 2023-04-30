@@ -33,7 +33,7 @@
 
 ```python
 
-API_KEY = "nasa-token"
+API_KEY = "nasa-key"
 NASAAPOD_KEY = "nasa-token"
 TG_TOKEN = "bot-token"
 TG_CHAT_ID = "@chat_id"
@@ -42,7 +42,7 @@ TIME_BETWEEN_PHOTO_UPLOADS = 60
     
 ```
 
-Получить токен `NASAAPOD_KEY` и `NASA_KEY` можно на сайте [NASA](https://api.nasa.gov/).
+Получить токен `NASAAPOD_KEY` и `API_KEY` можно на сайте [NASA](https://api.nasa.gov/).
 Получить токен `TG_TOKEN` можно у отца ботов.
 В описании канала получите название и положите в переменную `TG_CHAT_ID`.
 
