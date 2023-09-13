@@ -16,21 +16,21 @@ def extract_extension_from_link(link):
 
 
 def get_apod_images(api_key, foldername, links_count):
-    nasa_apod_link = "https://api.nasa.gov/planetary/apod"
+    link_nasa_apod = "https://api.nasa.gov/planetary/apod"
     params = {"api_key": api_key, "count": links_count}
 
-    response = requests.get(nasa_apod_link, params=params)
+    response = requests.get(link_nasa_apod, params=params)
     response.raise_for_status()
     nasa_images = response.json()
     for nasa_image in nasa_images:
         if nasa_image.get("media_type") == "image":
             if nasa_image.get("hdurl"):
-                nasa_image_link = nasa_image["hdurl"]
+                link_nasa_image = nasa_image["hdurl"]
             else:
-                nasa_image_link = nasa_image["url"]
-       extension, file_name = extract_extension_from_link(nasa_image_link)
+                link_nasa_image = nasa_image["url"]
+       extension, file_name = extract_extension_from_link(link_nasa_image)
        path = os.path.join(folder_name, f'{file_name}{extension}')
-       download_image(nasa_image_link, path)
+       download_image(link_nasa_image, path)
 
 
 def main():
