@@ -7,10 +7,10 @@ from download_image import download_image
 
 
 def get_epic_images(api_key, foldername, links_count):
-    link_nasa_epic = "https://api.nasa.gov/EPIC/api/natural/image"
+    nasa_epic_link = "https://api.nasa.gov/EPIC/api/natural/image"
     params = {"api_key": api_key, "count": links_count}
 
-    response = requests.get(link_nasa_epic, params=params)
+    response = requests.get(nasa_epic_link, params=params)
     response.raise_for_status()
     nasa_images = response.json()
     for nasa_image in nasa_images:
