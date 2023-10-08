@@ -33,7 +33,7 @@
 
 ```python
 
-API_KEY = "nasa-key"
+
 NASAAPOD_KEY = "nasa-token"
 NASA_KEY = "nasa-token"
 TG_TOKEN = "bot-token"
